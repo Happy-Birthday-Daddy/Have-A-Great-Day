@@ -1,6 +1,3 @@
-git add .
-git commit -m "Add HTML file"
-git push
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,9 +70,9 @@ git push
 <body>
 
     <div id="access-screen">
-        <h2>Enter the secret code to enter:</h2>
-        <p><i>Hint: The tag for a primary heading</i></p>
-        <input type="text" id="userInput" placeholder="Type HTML here...">
+        <h2>Enter the secret code to open the card:</h2>
+        <p><i>Hint: Solve the inequality: 9x-7i > 3(3x-7u) </i></p>
+        <input type="text" id="userInput" placeholder="Type answer here (no spaces)...">
         <button onclick="checkCode()">Unlock</button>
         <p id="error" style="color: red; display: none;">Oops! Try again.</p>
     </div>
@@ -93,8 +90,8 @@ git push
             const card = document.getElementById('birthday-card');
             const error = document.getElementById('error');
 
-            // The secret "code" is <h1>
-            if (code === "<h1>") {
+            // The secret "code" is i<3u
+            if (code === "i<3u") {
                 accessScreen.style.display = "none";
                 card.style.display = "block";
                 document.body.style.backgroundColor = "#fff5e6"; // Change background color
