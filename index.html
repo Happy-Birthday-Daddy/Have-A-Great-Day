@@ -1,0 +1,107 @@
+git add .
+git commit -m "Add HTML file"
+git push
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            text-align: center;
+        }
+
+        /* Access Screen */
+        #access-screen {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Birthday Card (Hidden by default) */
+        #birthday-card {
+            display: none;
+            background: #fff0f5;
+            padding: 50px;
+            border-radius: 20px;
+            border: 5px dashed #ff69b4;
+            animation: pop-in 0.5s ease-out;
+        }
+
+        h1 { color: #ff1493; }
+        p { font-size: 1.2rem; color: #333; }
+
+        @keyframes pop-in {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="access-screen">
+        <h2>Enter the secret code to enter:</h2>
+        <p><i>Hint: The tag for a primary heading</i></p>
+        <input type="text" id="userInput" placeholder="Type HTML here...">
+        <button onclick="checkCode()">Unlock</button>
+        <p id="error" style="color: red; display: none;">Oops! Try again.</p>
+    </div>
+
+    <div id="birthday-card">
+        <h1>🎂 Happy Birthday! 🎈</h1>
+        <p>I hope your day is as awesome as this website!</p>
+        <div style="font-size: 50px;">🎁🍰✨</div>
+    </div>
+
+    <script>
+        function checkCode() {
+            const code = document.getElementById('userInput').value.toLowerCase().trim();
+            const accessScreen = document.getElementById('access-screen');
+            const card = document.getElementById('birthday-card');
+            const error = document.getElementById('error');
+
+            // The secret "code" is <h1>
+            if (code === "<h1>") {
+                accessScreen.style.display = "none";
+                card.style.display = "block";
+                document.body.style.backgroundColor = "#fff5e6"; // Change background color
+            } else {
+                error.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
